@@ -27,9 +27,19 @@ foreach ( $checkservice in $listservice )
                     }
     }
 
+
+
 <#
 Set-Service -Name wuauserv -Status Stopped
 #>
 
+$checkport= Get-NetTCPConnection | ft 
 
+
+
+foreach ( $checkportL in $checkport ) 
+    { 
+    echo "port $checkportL.LocalPort" >> $Rapport 
+    }
+  
 
